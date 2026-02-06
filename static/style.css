@@ -1,0 +1,101 @@
+/* ---------- GLOBAL ---------- */
+body{
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to right, #667eea, #764ba2);
+    margin:0;
+    padding:0;
+}
+
+/* ---------- NAVBAR ---------- */
+.navbar{
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    color:white;
+    padding:18px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.navbar span{
+    margin-right:20px;
+    font-weight:500;
+}
+
+.navbar a{
+    background:white;
+    color:#667eea;
+    padding:8px 18px;
+    border-radius:20px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* ---------- DASHBOARD ---------- */
+.dashboard{
+    padding:40px;
+    color:white;
+}
+
+/* ---------- CARDS ---------- */
+.cards{
+    display:flex;
+    gap:25px;
+    margin-top:20px;
+    margin-bottom:30px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    width:220px;
+    color:#333;
+}
+
+/* ---------- FORMS ---------- */
+form input{
+    padding:12px;
+    margin:8px 0;
+    border:none;
+    border-radius:8px;
+    width:260px;
+}
+
+button{
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    background:#ff7a18;
+    color:white;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+/* ---------- TASK CARDS ---------- */
+.task-card{
+    background:white;
+    padding:18px;
+    margin:12px 0;
+    border-radius:12px;
+    box-shadow:0 8px 18px rgba(0,0,0,0.15);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:#333;
+}
+
+.delete-btn{
+    background:#ff4d4d;
+    padding:6px 14px;
+    border-radius:20px;
+    color:white;
+    text-decoration:none;
+}
+
+/* ---------- TIMER ---------- */
+#timer{
+    margin-top:30px;
+}

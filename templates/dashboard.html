@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>StudySync Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body style="display:block">
+
+<div class="navbar">
+    <h2>StudySync 📚</h2>
+    <div>
+        <span>Hi, {{ username }} 👋</span>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+
+
+<div class="dashboard">
+
+    <h1>Welcome back 👋</h1>
+    <h2>Add New Task</h2>
+
+<form method="POST" action="/add_task">
+    <input name="title" type="text" placeholder="Task title" required>
+    <input name="due_date" type="date" required>
+    <button type="submit">Add Task</button>
+</form>
+
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Today's Tasks</h3>
+              <p>{{ task_count }} Tasks</p>
+
+        </div>
+
+        <div class="card">
+           <h3>Study Hours</h3>
+            <p>{{ hours }} hrs</p>
+
+        </div>
+
+        <div class="card">
+            <h3>Streak 🔥</h3>
+             <p>{{ streak }} days</p>
+
+        </div>
+
+    </div>
+<h2>Study Timer ⏱️</h2>
+
+<div id="timer">
+    <h1 id="time">25:00</h1>
+    <button onclick="startTimer()">Start Study Session</button>
+    <button onclick="finishSession()">Finish Session</button>
+</div>
+
+<script>
+let timeLeft = 1500; // 25 minutes
+
+function startTimer(){
+    setInterval(function(){
+        if(timeLeft > 0){
+            timeLeft--;
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            document.getElementById("time").innerHTML =
+                minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+        }
+    },1000);
+}
+
+function finishSession(){
+    window.location.href = "/save_session";
+}
+</script>
+
+
+<script>
+let timeLeft = 1500; // 25 minutes
+
+function startTimer(){
+    setInterval(function(){
+        if(timeLeft > 0){
+            timeLeft--;
+            let minutes = Math.floor(timeLeft / 60);
+            let seconds = timeLeft % 60;
+            document.getElementById("time").innerHTML =
+                minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+        }
+    },1000);
+}
+</script>
+
+</div>
+<h2>Your Tasks</h2>
+
+<div class="task-list">
+{% for task in tasks %}
+    <div class="task-card">
+        <div>
+            <h3>{{ task[1] }}</h3>
+            <p>Due: {{ task[2] }}</p>
+        </div>
+        <a class="delete-btn" href="/delete/{{ task[0] }}">Delete</a>
+    </div>
+{% endfor %}
+</div>
+
+
+
+</body>
+</html>
